@@ -1,3 +1,4 @@
+# Use the official PHP image
 FROM php:7.4-apache
 
 # Install necessary extensions
@@ -12,5 +13,8 @@ WORKDIR /var/www/html
 # Copy your Yourls files into the container
 COPY . .
 
-# Configure Apache to serve your Yourls installation
+# Copy Apache configuration file
 COPY ./yourls.conf /etc/apache2/sites-available/000-default.conf
+
+# Expose port 80
+EXPOSE 80
